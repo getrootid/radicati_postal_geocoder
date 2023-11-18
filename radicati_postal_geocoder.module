@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * @file
+ * Contains radicati_postal_geocoder.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function radicati_postal_geocoder_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the radicati_postal_geocoder module.
+    case 'help.page.radicati_postal_geocoder':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Takes a U.S. Postal Code and returns a Lat/Lng pair.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_geocoder_provider_info_alter().
+ *
+ * @param array $plugins
+ *   The list of plugin definitions to alter, passed by reference.
+ */
+//function radicati_postal_geocoder_geocoder_provider_info_alter(array &$plugins): void {
+//  // If composer is caching plugin locations remove them.
+//  $class_loader = \Drupal::service('class_loader');
+//  if (($class_loader instanceof ClassLoader) && (($apcu_prefix = $class_loader->getApcuPrefix()) !== NULL)) {
+//    $apcu_cache_keys = [];
+//    foreach ($plugins as $plugin) {
+//      if (!empty($plugin['handler'])) {
+//        $apcu_cache_keys[] = $apcu_prefix . ltrim($plugin['handler'], '\\');
+//      }
+//    }
+//    $results = apcu_delete($apcu_cache_keys);
+//  }
+//
+//  // Remove plugins for which the providers are not installed.
+//  $plugins = array_filter($plugins, function (array $plugin): bool {
+//    return empty($plugin['handler']) || class_exists($plugin['handler']);
+//  });
+//}

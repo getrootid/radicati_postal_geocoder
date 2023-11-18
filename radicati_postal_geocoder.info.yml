@@ -1,0 +1,7 @@
+name: 'Radicati: Postal Code Geocoder (us)'
+type: module
+description: 'Takes a U.S. Postal Code and returns a Lat/Lng pair.'
+core_version_requirement: ^8 || ^9
+package: "radicati"
+dependencies:
+  - geocoder
